@@ -1,5 +1,5 @@
 package Exercise2;
 
 public class Present {
-    // MAGIC SEQUENCE OR KATONG NUMBERS TO WORDS
+    // MAGIC SEQUENCE OR KATONG NUMBERS TO WORDS dgsgds
 }
