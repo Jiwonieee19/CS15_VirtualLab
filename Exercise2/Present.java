@@ -1,5 +1,5 @@
 package Exercise2;
 
 public class Present {
-    // MAGIC SEQUENCE OR KATONG NUMBERS TO WORDS dgsgds
+    // 1V1 MINI TURN BASED CARD GAMES NALANG HEEHE
 }
