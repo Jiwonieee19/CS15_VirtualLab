@@ -57,6 +57,12 @@ public class Card {
         if (isPlayer) {
             System.out.println("\nYou played: " + this.getName());
 
+            if (Present.playerDoubleEffect == 1) {
+                card.setAmount(card.getAmount() * 2);
+                System.out.println("Double Effect Activated!");
+                Present.playerDoubleEffect++;
+            }
+
             if (card.getAttributes().equals("Burst")) {
                 Present.hpBot -= card.getAmount();
                 System.out.println("Dealt " + card.getAmount() + " damage to the Bot!");
@@ -72,10 +78,26 @@ public class Card {
                 Present.hpPlayer += card.getAmount();
                 System.out.println("Healed " + card.getAmount() + " HP!");
                 System.out.println("Your Current HP: " + Present.hpPlayer);
+
+            } else if (card.getName().equals("Buff")) {
+                Present.playerDoubleEffect++;
+                System.out.println("Next Round Damage/Heal/Poison will doubled");
+                System.out.println("This effect is not Stackable!");
+            }
+
+            if (Present.playerDoubleEffect == 2) {
+                card.setAmount(card.getAmount() / 2);
+                Present.playerDoubleEffect -= 2;
             }
 
         } else {
             System.out.println("\nBot played: " + this.getName());
+
+            if (Present.botDoubleEffect == 1) {
+                card.setAmount(card.getAmount() * 2);
+                System.out.println("Double Effect Activated!");
+                Present.botDoubleEffect++;
+            }
 
             if (card.getAttributes().equals("Burst")) {
                 Present.hpPlayer -= card.getAmount();
@@ -92,6 +114,16 @@ public class Card {
                 Present.hpBot += card.getAmount();
                 System.out.println("Healed " + card.getAmount() + " HP!");
                 System.out.println("Your Current HP: " + Present.hpBot);
+
+            } else if (card.getName().equals("Buff")) {
+                Present.botDoubleEffect++;
+                System.out.println("Next Round Damage/Heal/Poison will doubled");
+                System.out.println("This effect is not Stackable!");
+            }
+
+            if (Present.botDoubleEffect == 2) {
+                card.setAmount(card.getAmount() / 2);
+                Present.botDoubleEffect -= 2;
             }
 
         }

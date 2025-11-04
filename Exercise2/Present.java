@@ -12,14 +12,16 @@ public class Present {
     static int hpPlayer = 100;
     static int hpBot = 100;
     static int poisonPlayer = 0, poisonBot = 0;
+    static int playerDoubleEffect = 0, botDoubleEffect = 0;
 
     static Random picker = new Random();
 
-    static Card c1 = new Card("Damage", "Burst", 37);
+    static Card c1 = new Card("Damage", "Burst", 31);
     static Card c2 = new Card("DeBuff", "Poison", 5);
     static Card c3 = new Card("Defense", "Heal", 23);
+    static Card c4 = new Card("Buff", "Double Effect Next Card", 0);
 
-    static Card[] cards = { c1, c2, c3 };
+    static Card[] cards = { c1, c2, c3, c4 };
 
     public static void main(String[] args) {
 
@@ -27,9 +29,9 @@ public class Present {
                 "THIS IS A 1V1 GAME WITH RANDOM CARDS EVERY TURN\nNOTE THAT YOU CAN DRAW DUPLICATES SO THE GAME WILL BE CHALLENGING WITH LUCK");
 
         do {
-            Card a = cards[picker.nextInt(3)];
-            Card b = cards[picker.nextInt(3)];
-            Card c = cards[picker.nextInt(3)];
+            Card a = cards[picker.nextInt(4)];
+            Card b = cards[picker.nextInt(4)];
+            Card c = cards[picker.nextInt(4)];
 
             System.out.println("----------------------------------------------\nROUND " + round);
             System.out.println("YOUR CURRENT HP: " + hpPlayer + "        BOT CURRENT HP: " + hpBot
@@ -74,7 +76,7 @@ public class Present {
 
             System.out.println("\nBOT'S TURN\nCHOOSING A CARD!!");
 
-            Card botCard = cards[picker.nextInt(3)];
+            Card botCard = cards[picker.nextInt(4)];
             botCard.executeCard(botCard, false);
 
             round++;
