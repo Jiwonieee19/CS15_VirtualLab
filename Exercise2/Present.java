@@ -20,6 +20,7 @@ public class Present {
     static Card c2 = new Card("DeBuff", "Poison", 5);
     static Card c3 = new Card("Defense", "Heal", 23);
     static Card c4 = new Card("Buff", "Double Effect Next Card", 0);
+    static Card c5 = new Card("Disable", "Disable Damage Type", 0);
 
     static Card[] cards = { c1, c2, c3, c4 };
 
