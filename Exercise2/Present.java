@@ -20,9 +20,9 @@ public class Present {
     static Card c2 = new Card("DeBuff", "Poison", 5);
     static Card c3 = new Card("Defense", "Heal", 23);
     static Card c4 = new Card("Buff", "Double Effect Next Card", 0);
-    static Card c5 = new Card("Disable", "Disable Damage Type", 0);
+    static Card c5 = new Card("Purify", "Remove DeBuffs", 0);
 
-    static Card[] cards = { c1, c2, c3, c4 };
+    static Card[] cards = { c1, c2, c3, c4, c5 };
 
     public static void main(String[] args) {
 
@@ -30,9 +30,9 @@ public class Present {
                 "THIS IS A 1V1 GAME WITH RANDOM CARDS EVERY TURN\nNOTE THAT YOU CAN DRAW DUPLICATES SO THE GAME WILL BE CHALLENGING WITH LUCK");
 
         do {
-            Card a = cards[picker.nextInt(4)];
-            Card b = cards[picker.nextInt(4)];
-            Card c = cards[picker.nextInt(4)];
+            Card a = cards[picker.nextInt(5)];
+            Card b = cards[picker.nextInt(5)];
+            Card c = cards[picker.nextInt(5)];
 
             System.out.println("----------------------------------------------\nROUND " + round);
             System.out.println("YOUR CURRENT HP: " + hpPlayer + "        BOT CURRENT HP: " + hpBot
@@ -77,7 +77,7 @@ public class Present {
 
             System.out.println("\nBOT'S TURN\nCHOOSING A CARD!!");
 
-            Card botCard = cards[picker.nextInt(4)];
+            Card botCard = cards[picker.nextInt(5)];
             botCard.executeCard(botCard, false);
 
             round++;

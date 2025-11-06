@@ -83,6 +83,11 @@ public class Card {
                 Present.playerDoubleEffect++;
                 System.out.println("Next Round Damage/Heal/Poison will doubled");
                 System.out.println("This effect is not Stackable!");
+
+            } else if (card.getName().equals("Purify")) {
+                Present.poisonPlayer = 0;
+                System.out.println("Purified Debuff");
+                System.out.println("Poison Effect = " + Present.poisonPlayer);
             }
 
             if (Present.playerDoubleEffect == 2) {
@@ -119,6 +124,11 @@ public class Card {
                 Present.botDoubleEffect++;
                 System.out.println("Next Round Damage/Heal/Poison will doubled");
                 System.out.println("This effect is not Stackable!");
+
+            } else if (card.getName().equals("Purify")) {
+                Present.poisonPlayer = 0;
+                System.out.println("Purified Debuff");
+                System.out.println("Poison Effect = " + Present.poisonPlayer);
             }
 
             if (Present.botDoubleEffect == 2) {
