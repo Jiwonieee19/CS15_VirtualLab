@@ -30,7 +30,7 @@ public class Present {
                 "THIS IS A 1V1 GAME WITH RANDOM CARDS EVERY TURN\nNOTE THAT YOU CAN DRAW DUPLICATES SO THE GAME WILL BE CHALLENGING WITH LUCK");
 
         do {
-            Card a = cards[picker.nextInt(5)];
+            Card a = cards[3];
             Card b = cards[picker.nextInt(5)];
             Card c = cards[picker.nextInt(5)];
 

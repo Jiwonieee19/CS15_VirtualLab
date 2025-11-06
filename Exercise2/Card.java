@@ -57,7 +57,7 @@ public class Card {
         if (isPlayer) {
             System.out.println("\nYou played: " + this.getName());
 
-            if (Present.playerDoubleEffect == 1) {
+            if (Present.playerDoubleEffect == 1 && !card.getName().equals("Buff")) {
                 card.setAmount(card.getAmount() * 2);
                 System.out.println("Double Effect Activated!");
                 Present.playerDoubleEffect++;
@@ -80,7 +80,11 @@ public class Card {
                 System.out.println("Your Current HP: " + Present.hpPlayer);
 
             } else if (card.getName().equals("Buff")) {
-                Present.playerDoubleEffect++;
+                if (Present.playerDoubleEffect == 0) {
+                    Present.playerDoubleEffect++;
+                }
+                // magg plus 1 lng if zero pa, means d na mag sigi padayun ang number sa
+                // doubleeffect eventhough ma spam
                 System.out.println("Next Round Damage/Heal/Poison will doubled");
                 System.out.println("This effect is not Stackable!");
 
@@ -98,7 +102,7 @@ public class Card {
         } else {
             System.out.println("\nBot played: " + this.getName());
 
-            if (Present.botDoubleEffect == 1) {
+            if (Present.botDoubleEffect == 1 && !card.getName().equals("Buff")) {
                 card.setAmount(card.getAmount() * 2);
                 System.out.println("Double Effect Activated!");
                 Present.botDoubleEffect++;
@@ -118,10 +122,14 @@ public class Card {
             } else if (card.getAttributes().equals("Heal")) {
                 Present.hpBot += card.getAmount();
                 System.out.println("Healed " + card.getAmount() + " HP!");
-                System.out.println("Your Current HP: " + Present.hpBot);
+                System.out.println("Bot Current HP: " + Present.hpBot);
 
             } else if (card.getName().equals("Buff")) {
-                Present.botDoubleEffect++;
+                if (Present.playerDoubleEffect == 0) {
+                    Present.playerDoubleEffect++;
+                }
+                // magg plus 1 lng if zero pa, means d na mag sigi padayun ang number sa
+                // doubleeffect eventhough ma spam
                 System.out.println("Next Round Damage/Heal/Poison will doubled");
                 System.out.println("This effect is not Stackable!");
 
