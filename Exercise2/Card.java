@@ -57,7 +57,7 @@ public class Card {
         if (isPlayer) {
             System.out.println("\nYou played: " + this.getName());
 
-            if (Present.playerDoubleEffect == 1 && !card.getName().equals("Buff")) {
+            if (Present.playerDoubleEffect == 1 && !card.getName().equals("Buff") && !card.getName().equals("Purify")) {
                 card.setAmount(card.getAmount() * 2);
                 System.out.println("Double Effect Activated!");
                 Present.playerDoubleEffect++;
@@ -102,7 +102,7 @@ public class Card {
         } else {
             System.out.println("\nBot played: " + this.getName());
 
-            if (Present.botDoubleEffect == 1 && !card.getName().equals("Buff")) {
+            if (Present.botDoubleEffect == 1 && !card.getName().equals("Buff") && !card.getName().equals("Purify")) {
                 card.setAmount(card.getAmount() * 2);
                 System.out.println("Double Effect Activated!");
                 Present.botDoubleEffect++;
@@ -125,8 +125,8 @@ public class Card {
                 System.out.println("Bot Current HP: " + Present.hpBot);
 
             } else if (card.getName().equals("Buff")) {
-                if (Present.playerDoubleEffect == 0) {
-                    Present.playerDoubleEffect++;
+                if (Present.botDoubleEffect == 0) {
+                    Present.botDoubleEffect++;
                 }
                 // magg plus 1 lng if zero pa, means d na mag sigi padayun ang number sa
                 // doubleeffect eventhough ma spam

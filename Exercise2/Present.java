@@ -30,7 +30,7 @@ public class Present {
                 "THIS IS A 1V1 GAME WITH RANDOM CARDS EVERY TURN\nNOTE THAT YOU CAN DRAW DUPLICATES SO THE GAME WILL BE CHALLENGING WITH LUCK");
 
         do {
-            Card a = cards[3];
+            Card a = cards[picker.nextInt(5)];
             Card b = cards[picker.nextInt(5)];
             Card c = cards[picker.nextInt(5)];
 
@@ -77,11 +77,26 @@ public class Present {
 
             System.out.println("\nBOT'S TURN\nCHOOSING A CARD!!");
 
-            Card botCard = cards[picker.nextInt(5)];
-            botCard.executeCard(botCard, false);
+            // manipulate gameplay to see bugs in action
+            if (round == 1) {
+                Card botCard = cards[3];
+                botCard.executeCard(botCard, false);
+            } else if (round == 2) {
+                Card botCard = cards[4];
+                botCard.executeCard(botCard, false);
+            } else if (round == 3) {
+                Card botCard = cards[0];
+                botCard.executeCard(botCard, false);
+            } else {
+                Card botCard = cards[picker.nextInt(4)];
+                botCard.executeCard(botCard, false);
+            }
+            // reyal gameplay
+            // Card botCard = cards[picker.nextInt(5)];
+            // botCard.executeCard(botCard, false);
 
-            round++;
             System.out.println("\nEND OF ROUND " + round + "\n\n");
+            round++;
 
         } while (hpPlayer > 0 && hpBot > 0);
 
