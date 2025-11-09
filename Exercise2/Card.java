@@ -147,5 +147,3 @@ public class Card {
         }
     }
 }
-
-// conventional commit
