@@ -1,29 +1,20 @@
-
-
-class Student:
-    def __init__(self, name, ID):
-        self.name = name
-        self.ID = ID
-
-    def add_grades(self):
-        progLang = input("Enter your PROGRAMMING LANGUAGE Grade [Grade/100]: ")
-        print(f"dfd{progLang}")
-        webDev = input("Enter your WEB DEVELOPMENT Grade [Grade/100]: ")
-        print(f"dfd{webDev}")
-        database = input("Enter your DATABASE Grade [Grade/100]: ")
-        print(f"dfd{database}")
-        print()
+from Student import Student
         
-
-
-
-
 class Main:
     print("===== STUDENT GRADING SYSTEM =====")
     name = input("Enter your FULL NAME: ")
-    print(f"dfd{name}")
-    ID = input("Enter your STUDENT ID NUMBER: ")
-    print(f"dfd{ID}")
+
+    while(True):
+        try:
+            ID = int (input("Enter your STUDENT ID NUMBER: "))
+        except:
+            print("ENTER VALID NUMBER/S!!")
+            continue
+        break
     
     Studs = Student(name, ID)
-    Studs.add_grades()
+    listOfGrade = Studs.add_grades() # store the array/list that is returned
+    totalAve = Studs.calculate_average(listOfGrade) # store float
+    Studs.display_info(listOfGrade, totalAve) # diplay, this is a void method
+    res = Studs.get_grade_letter(totalAve) # store letter grade in res
+    print(res + "\n")
