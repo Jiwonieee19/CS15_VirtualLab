@@ -11,8 +11,8 @@ class Student:
         while(True):
             try:
                 progLang = int(input("Enter your PROGRAMMING LANGUAGE Grade [Grade/100]: "))
-                if (progLang > 100):
-                    print("GRADE CANNOT BE EXCEEDED ON 100!")
+                if (progLang > 100 or progLang < 0):
+                    print("GRADE CANNOT BE EXCEEDED ON 100! OR LESS THAN 0!")
                     continue
             except:
                 print("ENTER VALID NUMBER/S!!")
@@ -23,8 +23,8 @@ class Student:
         while(True):
             try:
                 webDev = int(input("Enter your WEB DEVELOPMENT Grade [Grade/100]: "))
-                if (webDev > 100):
-                    print("GRADE CANNOT BE EXCEEDED ON 100!")
+                if (webDev > 100 or webDev < 0):
+                    print("GRADE CANNOT BE EXCEEDED ON 100! OR LESS THAN 0!")
                     continue
             except:
                 print("ENTER VALID NUMBER/S!!")
@@ -35,8 +35,8 @@ class Student:
         while(True):
             try:
                 database = int(input("Enter your DATABASE Grade [Grade/100]: "))
-                if (database > 100):
-                    print("GRADE CANNOT BE EXCEEDED ON 100!")
+                if (database > 100 or database < 0):
+                    print("GRADE CANNOT BE EXCEEDED ON 100! OR LESS THAN 0!")
                     continue
             except:
                 print("ENTER VALID NUMBER/S!!")
