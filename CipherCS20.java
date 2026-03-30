@@ -1,6 +1,5 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
-// import java.util.Random;
 
 public class CipherCS20 {
 
@@ -11,21 +10,29 @@ public class CipherCS20 {
     static char[] dissect;
 
     public static void main(String[] args) {
+        do {
+            try {
+                System.out.println("CHOOSE: \nENCRYPTION [1]\nDECRYPTION [2]");
+                choice = ryy.nextInt();
+                ryy.nextLine();
+            } catch (InputMismatchException e) {
+                ryy.nextLine();
+                choice = 0;
+            }
 
-        System.out.println("CHOOSE: \nENCRYPTION [1]\nDECRYPTION [2]");
-        choice = ryy.nextInt();
-        ryy.nextLine();
-
-        switch (choice) {
-            case 1:
-                Encryption();
-                break;
-            case 2:
-                Decryption();
-                break;
-            default:
-                System.out.println("WRONG CHOICE, DO IT AGAIN");
-        }
+            switch (choice) {
+                case 1:
+                    Encryption();
+                    break;
+                case 2:
+                    Decryption();
+                    break;
+                default:
+                    System.out.println("WRONG CHOICE, DO IT AGAIN");
+                    choice = 0;
+                    break;
+            }
+        } while (choice == 0);
 
     }
 
@@ -43,8 +50,18 @@ public class CipherCS20 {
                         converted = converted + alphabet.charAt(j + shiftKeyChoice);
                     } catch (StringIndexOutOfBoundsException e) {
                         // if wxyz, i mean if malapas sa array ang key, ibalik sa abc
-                        int newIndex = j + shiftKeyChoice - 26;
-                        converted = converted + alphabet.charAt(newIndex);
+                        if (j + shiftKeyChoice > 26) {
+                            int newIndex = (j + shiftKeyChoice) - 26;
+                            converted = converted + alphabet.charAt(newIndex);
+                        } else {
+                            // times -1 para magbalik sa original key, tapos 26 - (j + shiftKeyChoice) para
+                            // magbalik sa alphabet
+                            shiftKeyChoice *= -1;
+                            int newIndex = 26 - (j + shiftKeyChoice);
+                            converted = converted + alphabet.charAt(newIndex);
+                            // balik sa original key para sa susunod na characters dili na matik +j
+                            shiftKeyChoice *= -1;
+                        }
                     }
                     continue restart;
                     // SALO ANG NON-ALPHABETS AND ALL NA E REMAIN
